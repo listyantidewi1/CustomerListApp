@@ -15,7 +15,7 @@ const CustomerListScreen = ({ navigation }) => {
 
   useEffect(() => {
     axios
-      .get("https://retoolapi.dev/yZjtsj/customers")
+      .get("https://jsonplaceholder.typicode.com/users")
       .then((response) => setCustomers(response.data))
       .catch((error) => console.error(error));
   }, []);
@@ -33,7 +33,7 @@ const CustomerListScreen = ({ navigation }) => {
       <View
         style={{ padding: 16, borderBottomWidth: 1, borderBottomColor: "#ccc" }}
       >
-        <Text>{item.customer_name}</Text>
+        <Text>{item.name}</Text>
       </View>
     </Pressable>
   );

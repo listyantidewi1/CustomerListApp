@@ -10,12 +10,14 @@ const CustomerDetailScreen = ({ route }) => {
     <View style={styles.card}>
       <View style={styles.cardContent}>
         <Image source={{ uri: imageUrl }} style={styles.image} />
-        <Text style={styles.title}>Name: {customer.customer_name}</Text>
+        <Text style={styles.title}>Name: {customer.name}</Text>
         <Text style={styles.description}>Email: {customer.email}</Text>
-        <Text style={styles.description}>Address: {customer.address}</Text>
-        <Text style={styles.description}>
-          Phone Number: {customer.phone_number}
-        </Text>
+        <Text style={styles.description}>Address:</Text>
+        <Text style={styles.indentedText}>{customer.address.street}</Text>
+        <Text style={styles.indentedText}>{customer.address.suite}</Text>
+        <Text style={styles.indentedText}>{customer.address.city}</Text>
+        <Text style={styles.indentedText}>{customer.address.zipcode}</Text>
+        <Text style={styles.description}>Phone Number: {customer.phone}</Text>
       </View>
     </View>
   );
@@ -43,6 +45,9 @@ const styles = StyleSheet.create({
   },
   description: {
     color: "#555",
+  },
+  indentedText: {
+    marginLeft: 20, // Adjust the value based on your preferred indentation
   },
 });
 
